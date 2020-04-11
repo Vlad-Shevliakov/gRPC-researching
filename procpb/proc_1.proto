@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package first_proc;
+option go_package="procpb";
+
+message Greeting {
+    string network = 1; // number of field
+    string name = 2;
+}
+
+message GreetRequest {
+    Greeting greeting = 1;
+}
+
+message GreetResponse {
+    string result = 1;
+}
+
+service ProcService{
+    // Unary
+    rpc Greet(GreetRequest) returns (GreetResponse) {};
+}
